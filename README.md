@@ -3,6 +3,8 @@ programa en Java (IntelliJ + Swing) que incluye:
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0e9c8a5d-ea27-4d7d-9873-db335ca6747d" />  
 
+<img width="1279" height="1079" alt="image" src="https://github.com/user-attachments/assets/a02ee86f-991c-4b5a-a567-926d87dffa93" />    
+
 - ✔ Cálculo de función lineal
 - ✔ Interfaz gráfica
 - ✔ Gráfica de la función usando Java Graphics (Graphics2D)
