@@ -13,4 +13,4 @@ public class FuncionLineal {
     public double calcular(double x) {
         return a * x + b;
     }
-}   
+}
