@@ -1,17 +1,66 @@
 package com.funcionlineal;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class InterfazFuncionLineal {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import javax.swing.*;
+import java.awt.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class InterfazFuncionLineal extends JFrame {
+
+    private JTextField campoA;
+    private JTextField campoB;
+    private PanelGrafica panelGrafica;
+
+    public InterfazFuncionLineal() {
+
+        setTitle("Gráfica de Función Lineal");
+        setSize(700,500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        JPanel panelControl = new JPanel();
+
+        panelControl.add(new JLabel("a:"));
+        campoA = new JTextField("1",5);
+        panelControl.add(campoA);
+
+        panelControl.add(new JLabel("b:"));
+        campoB = new JTextField("0",5);
+        panelControl.add(campoB);
+
+        JButton botonGraficar = new JButton("Graficar");
+
+        panelControl.add(botonGraficar);
+
+        add(panelControl, BorderLayout.NORTH);
+
+        panelGrafica = new PanelGrafica();
+        add(panelGrafica, BorderLayout.CENTER);
+
+        botonGraficar.addActionListener(e -> {
+
+            try {
+
+                double a = Double.parseDouble(campoA.getText());
+                double b = Double.parseDouble(campoB.getText());
+
+                panelGrafica.actualizarFuncion(a,b);
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Ingrese valores numéricos válidos");
+
+            }
+
+        });
+
+    }
+
+    public static void main(String[] args) {
+
+        SwingUtilities.invokeLater(() -> {
+
+            new InterfazFuncionLineal().setVisible(true);
+
+        });
     }
 }
